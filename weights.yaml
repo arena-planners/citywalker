@@ -1,0 +1,16 @@
+files:
+  - repo: ai4ce/citywalker
+    filename: model.safetensors
+    revision: 1b5d169e8eabe4b13e681df30bcbc08b20022a0b
+    dest: model/citywalker/model.safetensors
+    sha256: 180913e72708fae8317621d940a236d02caf41f2f0086217530cdde0f19d6538
+  - repo: ai4ce/citywalker
+    filename: config.json
+    revision: 1b5d169e8eabe4b13e681df30bcbc08b20022a0b
+    dest: model/citywalker/config.json
+    sha256: 76fbd394cd08fb69d3e22196f2b32ca7928cc93dcee381578954a006301af30b
+  - repo: facebook/dinov2-base
+    filename: config.json
+    revision: f9e44c814b77203eaa57a6bdbbd535f21ede1415
+    dest: model/dinov2-base/config.json
+    sha256: f7ff4cfa73d2f70647dbf6950541ad25d73082d54c2e7e9bded160c7656b2a70

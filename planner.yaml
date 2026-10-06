@@ -1,0 +1,58 @@
+action_type: waypoints
+rate_hz: 1
+sensor_needs: [image]
+controls_orientation: false
+goal_inputs: [pose]
+signals: [arrived]
+
+chunk:
+  execute_s: 1.0
+  lookahead_m: 0.5
+  speed_mps: 0.5
+
+depends:
+  global_plan: true
+
+config:
+  device: auto
+  step_scale_m: 0.5
+  crop: [350, 630]
+  resize: [350, 630]
+
+observations:
+  aliases: {}
+
+  datasources:
+    robot_pose:
+      type: RobotPoseTFGenerator
+      params: {}
+
+    camera:
+      type: sensor_msgs/Image
+      params:
+        sensor: image
+        output_size: [640, 480]
+
+    robot_pose_from_tf:
+      type: RobotPoseTFGenerator
+      params: {}
+
+    goal_pose:
+      type: geometry_msgs/PoseStamped
+      params:
+        topic: goal_pose
+
+    global_plan:
+      type: nav_msgs/Path
+      params:
+        topic: plan
+
+    costmap:
+      type: nav_msgs/OccupancyGrid
+      params:
+        topic: global_costmap/costmap
+
+    subgoal:
+      type: SubgoalGenerator
+      params:
+        lookahead: 6.0
